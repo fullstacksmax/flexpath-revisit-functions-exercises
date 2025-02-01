@@ -10,6 +10,19 @@ Both methods increment 'currentValue' by 1.
 
 Demonstrate how the keyword `this` behaves differently in both methods. */
 
+const calculator = {
+    currentValue: 0,
+    incrementArrow: () => {
+        this.currentValue += 1;
+        return this.currentValue;
+     },
+    
+     incrementTraditional() {
+        this.currentValue += 1;
+        return this.currentValue;
+    }
+}
+
 
 
 
