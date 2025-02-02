@@ -25,3 +25,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
  */
+
+const user = {
+    name: "max"
+}
+
+function greet(greeting) {
+    user.name = this.name;
+    return `${greeting} ${this.name}`
+}
+
+const bound = greet.bind(user)
+console.log(greet.call(user,"welcome to my call function"))
+console.log(greet.apply(user,["welcome to my apply function"]))
+console.log(bound("welcome to my bind function"))
+

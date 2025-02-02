@@ -10,21 +10,27 @@ Explain the importance of the base case in your recursive function. */
 
 function flattenArray(array) {
     //const shift = array.shift()
-    let newarray = []
+    const newarray = [];
+    ///console.log('in the function')
+(function recurse(currentArray) {
+        for(let e of currentArray) {
+            if(Array.isArray(e)){
+                recurse(e)
+            }
+            else {
+                newarray.push(e)
+            }
+        }
 
-    const shift = array.shift()
-    if(array.length === 0){
-        return newarray
-    }
+    })(array)
+    return newarray
+}
     //console.log(array)
     //console.log(array.shift())
     //console.log(array)
-    newarray.push(shift)
     //console.log(newarray)
     //console.log(newarray)
     //console.log(array)
-    return newarray, flattenArray(array)
-}
 
 
 // When ready, use the code below for testing
